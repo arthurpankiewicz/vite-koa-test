@@ -6,11 +6,11 @@
   "scripts": {
     "dev:frontend": "vite",
     "dev:backend": "nodemon --esm backend/index.ts",
-    "build": "tsc && vite build",
-    "build:backend": "tsc --esModuleInterop backend/index.ts schemas/user.ts",
+    "build:frontend": "tsc && vite build --outDir dist/frontend",
+    "build:backend": "tsc --module NodeNext --outDir dist/backend backend/index.ts schemas/user.ts",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview:frontend": "vite preview",
-    "preview:backend": "node backend/index.js"
+    "preview:frontend": "vite preview --outDir dist/frontend",
+    "preview:backend": "node dist/backend/backend/index.js"
   },
   "dependencies": {
     "@koa/cors": "^4.0.0",
